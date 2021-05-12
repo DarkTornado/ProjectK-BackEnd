@@ -11,7 +11,7 @@ $url = 'http://api.openweathermap.org/data/2.5/onecall?lat='.$params['x'].'&lon=
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$response = curl_exec ($ch);
+$response = curl_exec($ch);
 curl_close($ch);
 
 $data = json_decode($response, true);
@@ -20,11 +20,11 @@ $days = array("오늘", "내일", "모래");
 
 echo '[';
 for($n = 0; $n < count($days); $n++) {
-    if($n>0) echo ",";
+    if ($n > 0) echo ",";
     echo '{';
     echo '"date":"'.$days[$n].'",';
     echo '"status":"'.$data[$n]['weather'][0]['main'].'",';
-    echo '"icon":"'.$data[$n]['weather'][0]['icon'].'",';
+    echo '"icon":"https://openweathermap.org/img/wn/'.$data[$n]['weather'][0]['icon'].'@4x.png",';
     echo '"temp_min":"'.$data[$n]['temp']['min'].'℃",';
     echo '"temp_max":"'.$data[$n]['temp']['max'].'℃",';
     echo '"hum":"'.$data[$n]['humidity'].'%",';
