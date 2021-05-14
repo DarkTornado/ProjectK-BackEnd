@@ -29,7 +29,7 @@ for($n = 0; $n < count($days); $n++) {
     echo '"temp_max":"'.$data[$n]['temp']['max'].'℃",';
     echo '"hum":"'.$data[$n]['humidity'].'%",';
     echo '"wind_speed":"'.$data[$n]['wind_speed'].'m/s",';
-    echo '"wind_dir":"'.deg2dir($data['wind_deg']).'℃",';
+    echo '"wind_dir":"'.deg2dir($data['wind_deg']).'"';
     echo '}';
 }
 echo ']';
